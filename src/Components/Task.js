@@ -3,15 +3,27 @@ import { useState } from 'react';
 import './Task.css'
 
 const Task = () => {
-    const [date,setDate]= useState(null)
+    const [date,setDate]= useState([])
 
     const handleChange =(event)=>{
-        const selectValue= event.target.value
+        const selectValue= event.target.value;
+        
         if (selectValue === "Yesterday") {
       
-            setDate(new Date(Date.now() - 864e5).toDateString())
-          } else {
-            setDate(new Date(Date.now() - 864e5 * 7).toDateString())
+            const container = [new Date(Date.now() - 864e5).toDateString()]
+            setDate(container)
+          }
+          
+          else {
+
+            const container = [];
+
+            for(let i=1; i<=7; i++){
+                const t = i*864e5;
+             container.push(new Date(Date.now() - t).toDateString())
+             setDate(container)
+            }
+
           }
     }
    
@@ -31,7 +43,7 @@ const Task = () => {
                 date?<>
                 <div className='spacing'>
                 <h5>The date</h5>
-                <p>{date}</p>
+                {date.map(d=><p>{d}</p>)}
                 </div>
                 </>:''
             }
