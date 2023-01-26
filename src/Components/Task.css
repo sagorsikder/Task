@@ -1,0 +1,16 @@
+.text-box{
+    background-color: rgb(123, 109, 199);
+    width: 50%;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+.title{
+    text-align: center;
+    padding-top: 50px;
+}
+
+.spacing{
+    margin-left: 80px;
+}
